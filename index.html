@@ -1,11 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>로또 번호 추첨기</title>
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        h1 {
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            color: #2c3e50;
+        }
+
+        .numbers-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 2rem;
+            min-height: 60px;
+        }
+
+        .number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .number:hover {
+            transform: scale(1.1);
+        }
+
+        /* 로또 번호 색상 기준 */
+        .color-1 { background-color: #fbc02d; } /* 1-10: 노랑 */
+        .color-2 { background-color: #1976d2; } /* 11-20: 파랑 */
+        .color-3 { background-color: #d32f2f; } /* 21-30: 빨강 */
+        .color-4 { background-color: #7b1fa2; } /* 31-40: 보라 */
+        .color-5 { background-color: #388e3c; } /* 41-45: 초록 */
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-    <!-- Content removed -->
+    <div class="container">
+        <h1>로또 추첨기</h1>
+        <div class="numbers-container" id="numbers">
+            <!-- 번호가 여기에 생성됩니다 -->
+        </div>
+        <button id="generate-btn">번호 생성하기</button>
+    </div>
+
+    <script>
+        const numbersContainer = document.getElementById('numbers');
+        const generateBtn = document.getElementById('generate-btn');
+
+        function getColorClass(num) {
+            if (num <= 10) return 'color-1';
+            if (num <= 20) return 'color-2';
+            if (num <= 30) return 'color-3';
+            if (num <= 40) return 'color-4';
+            return 'color-5';
+        }
+
+        function generateLottoNumbers() {
+            const numbers = [];
+            while (numbers.length < 6) {
+                const num = Math.floor(Math.random() * 45) + 1;
+                if (!numbers.includes(num)) {
+                    numbers.push(num);
+                }
+            }
+            return numbers.sort((a, b) => a - b);
+        }
+
+        function displayNumbers() {
+            const winNumbers = generateLottoNumbers();
+            numbersContainer.innerHTML = '';
+            
+            winNumbers.forEach((num, index) => {
+                setTimeout(() => {
+                    const numDiv = document.createElement('div');
+                    numDiv.className = `number ${getColorClass(num)}`;
+                    numDiv.textContent = num;
+                    numDiv.style.opacity = '0';
+                    numDiv.style.transform = 'translateY(20px)';
+                    numbersContainer.appendChild(numDiv);
+                    
+                    // 애니메이션 효과
+                    requestAnimationFrame(() => {
+                        numDiv.style.transition = 'all 0.4s ease';
+                        numDiv.style.opacity = '1';
+                        numDiv.style.transform = 'translateY(0)';
+                    });
+                }, index * 150);
+            });
+        }
+
+        generateBtn.addEventListener('click', displayNumbers);
+
+        // 초기 실행
+        displayNumbers();
+    </script>
 </body>
 </html>

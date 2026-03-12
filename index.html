@@ -28,6 +28,19 @@
             transform: scale(1.05);
         }
         section { scroll-margin-top: 80px; }
+        
+        /* Contact Form Styles */
+        .form-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            border-color: #deff9a;
+            background: rgba(255, 255, 255, 0.1);
+            outline: none;
+        }
     </style>
 </head>
 <body class="bg-white text-slate-900">
@@ -42,7 +55,7 @@
                 <a href="#process" class="nav-link transition">PROCESS</a>
                 <a href="#contact" class="nav-link transition">CONTACT</a>
             </div>
-            <button class="bg-[#deff9a] text-black px-5 py-2 rounded-full text-xs font-bold font-urbanist hover:bg-white transition">INQUIRY</button>
+            <a href="#contact" class="bg-[#deff9a] text-black px-5 py-2 rounded-full text-xs font-bold font-urbanist hover:bg-white transition">INQUIRY</a>
         </div>
     </nav>
 
@@ -70,7 +83,7 @@
     <section id="about" class="py-24 bg-slate-50">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl md:text-5xl font-bold mb-10">경영학적 통찰과 AI의 결합</h2>
+                <h2 class="text-3xl md:text-5xl font-bold mb-10 text-slate-900">경영학적 통찰과 AI의 결합</h2>
                 <p class="text-xl text-slate-600 leading-relaxed">
                     부동산 개발의 본질은 물리적 건축이 아닌 <strong>'마케팅적 가치 교환'</strong>에 있습니다. <br>
                     우리는 경영학적 마케팅 시각으로 소비자의 행동 규칙성을 데이터화하고, <br>
@@ -95,7 +108,7 @@
                 <div class="brand-card group p-10 border border-slate-100 rounded-3xl bg-slate-50 hover:bg-black transition-all duration-500">
                     <div class="brand-icon text-4xl mb-8 transition-transform duration-500 group-hover:text-[#deff9a]"><i class="fa-solid fa-brain"></i></div>
                     <h3 class="text-2xl font-bold mb-4 font-urbanist group-hover:text-white">NEX CORE</h3>
-                    <p class="text-slate-500 group-hover:text-slate-400 mb-6 text-sm">마케팅 전략 사령탑. 시장의 규칙성을 발견하고 성공적인 상품 컨셉을 정의합니다.</p>
+                    <p class="text-slate-500 group-hover:text-slate-400 mb-6 text-sm leading-relaxed">마케팅 전략 사령탑. 시장의 규칙성을 발견하고 성공적인 상품 컨셉을 정의합니다.</p>
                     <ul class="text-xs space-y-2 group-hover:text-slate-300">
                         <li>• AI 소비자 행동 분석</li>
                         <li>• 상품 컨셉 및 MD 기획</li>
@@ -107,7 +120,7 @@
                 <div class="brand-card group p-10 border border-slate-100 rounded-3xl bg-slate-50 hover:bg-black transition-all duration-500">
                     <div class="brand-icon text-4xl mb-8 transition-transform duration-500 group-hover:text-[#deff9a]"><i class="fa-solid fa-bezier-curve"></i></div>
                     <h3 class="text-2xl font-bold mb-4 font-urbanist group-hover:text-white">NEX ARCHI</h3>
-                    <p class="text-slate-500 group-hover:text-slate-400 mb-6 text-sm">AI 기반 데이터 설계. 코어에서 정의한 가치를 가장 효율적인 공간 언어로 구현합니다.</p>
+                    <p class="text-slate-500 group-hover:text-slate-400 mb-6 text-sm leading-relaxed">AI 기반 데이터 설계. 코어에서 정의한 가치를 가장 효율적인 공간 언어로 구현합니다.</p>
                     <ul class="text-xs space-y-2 group-hover:text-slate-300">
                         <li>• AI 제너레이티브 디자인</li>
                         <li>• 최대 용적률 최적화 설계</li>
@@ -119,7 +132,7 @@
                 <div class="brand-card group p-10 border border-slate-100 rounded-3xl bg-slate-50 hover:bg-black transition-all duration-500">
                     <div class="brand-icon text-4xl mb-8 transition-transform duration-500 group-hover:text-[#deff9a]"><i class="fa-solid fa-chart-line"></i></div>
                     <h3 class="text-2xl font-bold mb-4 font-urbanist group-hover:text-white">NEX FINS</h3>
-                    <p class="text-slate-500 group-hover:text-slate-400 mb-6 text-sm">금융 공학 전략. 자본 조달 최적화와 사업비 최소화 시나리오를 설계합니다.</p>
+                    <p class="text-slate-500 group-hover:text-slate-400 mb-6 text-sm leading-relaxed">금융 공학 전략. 자본 조달 최적화와 사업비 최소화 시나리오를 설계합니다.</p>
                     <ul class="text-xs space-y-2 group-hover:text-slate-300">
                         <li>• AI PF 매칭 알고리즘</li>
                         <li>• 리스크 헷지 민감도 분석</li>
@@ -131,7 +144,7 @@
                 <div class="brand-card group p-10 border border-slate-100 rounded-3xl bg-slate-50 hover:bg-black transition-all duration-500">
                     <div class="brand-icon text-4xl mb-8 transition-transform duration-500 group-hover:text-[#deff9a]"><i class="fa-solid fa-bullhorn"></i></div>
                     <h3 class="text-2xl font-bold mb-4 font-urbanist group-hover:text-white">NEX AD</h3>
-                    <p class="text-slate-500 group-hover:text-slate-400 mb-6 text-sm">퍼포먼스 광고 실행. 정교한 타겟팅으로 분양 성공과 엑시트를 책임집니다.</p>
+                    <p class="text-slate-500 group-hover:text-slate-400 mb-6 text-sm leading-relaxed">퍼포먼스 광고 실행. 정교한 타겟팅으로 분양 성공과 엑시트를 책임집니다.</p>
                     <ul class="text-xs space-y-2 group-hover:text-slate-300">
                         <li>• 데이터 기반 타겟 광고</li>
                         <li>• 전환 중심 콘텐츠 제작</li>
@@ -148,9 +161,7 @@
             <h2 class="text-4xl font-bold mb-20 font-urbanist text-center">THE NEX PROCESS</h2>
             
             <div class="relative max-w-5xl mx-auto">
-                <!-- Vertical Line for Mobile -->
                 <div class="absolute left-1/2 top-0 bottom-0 w-px bg-white/10 hidden md:block"></div>
-                
                 <div class="space-y-24">
                     <div class="flex flex-col md:flex-row items-center justify-between">
                         <div class="md:w-5/12 text-right hidden md:block">
@@ -192,14 +203,45 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section id="contact" class="py-24 bg-[#deff9a]">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-6xl font-bold mb-8">당신의 프로젝트에 <br>AI 데이터의 확신을 더하세요.</h2>
-            <p class="text-xl mb-12 text-slate-800">넥스알엠 그룹은 파트너사의 성공을 데이터로 증명합니다.</p>
-            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
-                <input type="email" placeholder="이메일 주소를 입력하세요" class="px-8 py-4 rounded-full w-full md:w-96 focus:outline-none">
-                <button class="bg-black text-white px-10 py-4 rounded-full font-bold hover:bg-slate-800 transition">협업 문의하기</button>
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-black text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 font-urbanist">LET'S BUILD <br><span class="text-[#deff9a]">THE FUTURE</span></h2>
+                    <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                        프로젝트 협업 제안이나 서비스 문의가 있으신가요? <br>
+                        데이터를 기반으로 한 최고의 솔루션을 약속드립니다.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-[#deff9a]">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <span class="text-slate-200">kskim3200@gmail.com</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-[#deff9a]">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <span class="text-slate-200">Seoul, South Korea</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
+                    <form onsubmit="sendEmail(event)" class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <input type="text" id="name" placeholder="성함" required class="form-input w-full p-4 rounded-xl text-sm">
+                            <input type="text" id="company" placeholder="회사명" class="form-input w-full p-4 rounded-xl text-sm">
+                        </div>
+                        <input type="email" id="email" placeholder="이메일 주소" required class="form-input w-full p-4 rounded-xl text-sm">
+                        <textarea id="message" rows="4" placeholder="문의 내용" required class="form-input w-full p-4 rounded-xl text-sm"></textarea>
+                        <button type="submit" class="w-full bg-[#deff9a] text-black font-bold py-4 rounded-xl hover:bg-white transition duration-300">
+                            메일 보내기
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -210,7 +252,7 @@
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-8 md:mb-0 text-center md:text-left">
                     <a href="#" class="font-urbanist text-2xl font-800 text-[#deff9a]">NEX RM</a>
-                    <p class="mt-2 text-slate-500 text-sm">AI-DRIVEN REAL ESTATE DEVELOPMENT GROUP</p>
+                    <p class="mt-2 text-slate-500 text-sm tracking-wider uppercase">AI-DRIVEN REAL ESTATE DEVELOPMENT GROUP</p>
                 </div>
                 <div class="flex space-x-6">
                     <a href="#" class="text-slate-400 hover:text-white transition"><i class="fa-brands fa-linkedin text-2xl"></i></a>
@@ -221,12 +263,29 @@
             <div class="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600">
                 <p>&copy; 2026 NEX RM HOLDINGS. ALL RIGHTS RESERVED.</p>
                 <div class="flex space-x-4 mt-4 md:mt-0">
-                    <a href="#">개인정보 처리방침</a>
-                    <a href="#">이용약관</a>
+                    <a href="#" class="hover:text-slate-400 transition">개인정보 처리방침</a>
+                    <a href="#" class="hover:text-slate-400 transition">이용약관</a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <script>
+        function sendEmail(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const company = document.getElementById('company').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            const subject = `[NEX RM 문의] ${company} ${name}님으로부터`;
+            const body = `성함: ${name}\n회사: ${company}\n이메일: ${email}\n\n문의내용:\n${message}`;
+            
+            const mailtoUrl = `mailto:kskim3200@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            window.location.href = mailtoUrl;
+        }
+    </script>
 
 </body>
 </html>

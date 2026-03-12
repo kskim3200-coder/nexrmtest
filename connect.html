@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect | NEX RM Group</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;800&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-navy: #1a2a5b;
+            --brand-gold: #c5a044;
+        }
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8f9fa; color: #1a2a5b; }
+        .font-urbanist { font-family: 'Urbanist', sans-serif; }
+        .text-navy { color: var(--brand-navy); }
+        .text-gold { color: var(--brand-gold); }
+        .bg-navy { background-color: var(--brand-navy); }
+        .bg-gold { background-color: var(--brand-gold); }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.25rem;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--brand-gold);
+            box-shadow: 0 0 0 2px rgba(197, 160, 68, 0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="w-full bg-white py-6 border-b border-slate-100">
+        <div class="container mx-auto px-8 flex justify-between items-center">
+            <a href="index.html" class="font-urbanist font-800 text-2xl tracking-tighter text-navy uppercase">NEX RM</a>
+            <div class="font-bold text-xs tracking-[0.2em] text-navy">
+                <a href="index.html" class="hover:text-gold transition uppercase">Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Connect Form Section -->
+    <main class="flex-grow flex items-center justify-center py-20 px-8">
+        <div class="max-w-2xl w-full bg-white p-12 shadow-xl border border-slate-100">
+            <div class="text-center mb-12">
+                <p class="font-urbanist tracking-[0.4em] text-gold mb-4 font-800 uppercase text-xs">Partnership</p>
+                <h1 class="text-4xl font-urbanist font-800 text-navy uppercase tracking-tighter">Connect with Us</h1>
+                <p class="text-slate-500 mt-4 font-light">제휴 문의 및 비즈니스 제안을 남겨주시면 담당자가 검토 후 연락드리겠습니다.</p>
+            </div>
+
+            <form action="https://formspree.io/f/xpqydewo" method="POST" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-navy mb-2">성함 / 기업명</label>
+                        <input type="text" name="name" required class="form-input" placeholder="홍길동 / (주)넥스알엠">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-navy mb-2">이메일 주소</label>
+                        <input type="email" name="email" required class="form-input" placeholder="example@domain.com">
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-navy mb-2">연락처</label>
+                    <input type="tel" name="phone" class="form-input" placeholder="010-0000-0000">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-navy mb-2">문의 유형</label>
+                    <select name="type" class="form-input">
+                        <option value="partnership">비즈니스 제휴</option>
+                        <option value="investment">투자 문의</option>
+                        <option value="consulting">컨설팅 의뢰</option>
+                        <option value="other">기타 문의</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-navy mb-2">메시지</label>
+                    <textarea name="message" required rows="5" class="form-input" placeholder="상세한 문의 내용을 입력해주세요."></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-navy text-white py-5 font-bold hover:bg-gold transition uppercase text-sm tracking-widest shadow-lg">
+                    Submit Inquiry
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white py-8 border-t border-slate-100">
+        <div class="container mx-auto px-8 text-center text-[10px] text-slate-400 tracking-[0.2em] uppercase font-bold">
+            <span>&copy; 2026 NEX RM Group. All Rights Reserved.</span>
+        </div>
+    </footer>
+
+</body>
+</html>

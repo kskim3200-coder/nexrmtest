@@ -3,158 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로또 번호 추첨기</title>
+    <title>NEX RM | AI기반 통합 부동산 개발 그룹</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;800&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #4CAF50;
-            --bg-color: #f4f7f6;
-            --card-bg: #ffffff;
-            --text-color: #333;
+        body { font-family: 'Noto Sans KR', sans-serif; }
+        .font-urbanist { font-family: 'Urbanist', sans-serif; }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(222, 255, 154, 0.15), transparent),
+                        radial-gradient(circle at bottom left, rgba(15, 23, 42, 1), #000);
         }
-
-        body {
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+        .brand-card:hover .brand-icon { transform: translateY(-10px); color: #deff9a; }
+        .nav-link:hover { color: #deff9a; }
+        .btn-primary {
+            background-color: #deff9a;
+            color: #000;
+            transition: all 0.3s ease;
         }
-
-        .container {
-            background-color: var(--card-bg);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            text-align: center;
-            width: 90%;
-            max-width: 500px;
+        .btn-primary:hover {
+            background-color: #fff;
+            transform: scale(1.05);
         }
-
-        h1 {
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
-            color: #2c3e50;
-        }
-
-        .numbers-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 2rem;
-            min-height: 60px;
-        }
-
-        .number {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: white;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .number:hover {
-            transform: scale(1.1);
-        }
-
-        /* 로또 번호 색상 기준 */
-        .color-1 { background-color: #fbc02d; } /* 1-10: 노랑 */
-        .color-2 { background-color: #1976d2; } /* 11-20: 파랑 */
-        .color-3 { background-color: #d32f2f; } /* 21-30: 빨강 */
-        .color-4 { background-color: #7b1fa2; } /* 31-40: 보라 */
-        .color-5 { background-color: #388e3c; } /* 41-45: 초록 */
-
-        button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-        }
-
-        button:hover {
-            background-color: #45a049;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-        }
-
-        button:active {
-            transform: translateY(0);
-        }
+        section { scroll-margin-top: 80px; }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>로또 추첨기</h1>
-        <div class="numbers-container" id="numbers">
-            <!-- 번호가 여기에 생성됩니다 -->
+<body class="bg-white text-slate-900">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md text-white py-4 border-b border-white/10">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="font-urbanist text-2xl font-800 tracking-tighter">NEX <span class="text-[#deff9a]">RM</span></a>
+            <div class="hidden md:flex space-x-8 font-medium text-sm">
+                <a href="#about" class="nav-link transition">ABOUT</a>
+                <a href="#brands" class="nav-link transition">BRANDS</a>
+                <a href="#process" class="nav-link transition">PROCESS</a>
+                <a href="#contact" class="nav-link transition">CONTACT</a>
+            </div>
+            <button class="bg-[#deff9a] text-black px-5 py-2 rounded-full text-xs font-bold font-urbanist hover:bg-white transition">INQUIRY</button>
         </div>
-        <button id="generate-btn">번호 생성하기</button>
-    </div>
+    </nav>
 
-    <script>
-        const numbersContainer = document.getElementById('numbers');
-        const generateBtn = document.getElementById('generate-btn');
+    <!-- Hero Section -->
+    <header class="hero-gradient min-h-screen flex items-center text-white pt-20">
+        <div class="container mx-auto px-6 grid md:grid-4 gap-12 items-center">
+            <div class="md:col-span-12 text-center">
+                <p class="font-urbanist tracking-[0.3em] text-[#deff9a] mb-6 opacity-80 uppercase">AI-Driven Real Estate Development</p>
+                <h1 class="text-5xl md:text-8xl font-urbanist font-800 mb-8 leading-tight">
+                    DATA IS THE NEW <br><span class="italic text-transparent bg-clip-text bg-gradient-to-r from-[#deff9a] to-white">LOCATION</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-12 font-light">
+                    넥스알엠 그룹은 경험과 직관을 넘어 AI 데이터로 시장을 정의합니다.<br>
+                    마케팅이 전략을 세우고, 설계가 가치를 빚으며, 금융이 성장을 완성합니다.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#brands" class="btn-primary px-8 py-4 rounded-full font-bold">브랜드 탐색</a>
+                    <a href="#about" class="border border-white/20 px-8 py-4 rounded-full font-bold hover:bg-white/10 transition">비전 소개</a>
+                </div>
+            </div>
+        </div>
+    </header>
 
-        function getColorClass(num) {
-            if (num <= 10) return 'color-1';
-            if (num <= 20) return 'color-2';
-            if (num <= 30) return 'color-3';
-            if (num <= 40) return 'color-4';
-            return 'color-5';
-        }
+    <!-- Philosophy Section -->
+    <section id="about" class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-5xl font-bold mb-10">경영학적 통찰과 AI의 결합</h2>
+                <p class="text-xl text-slate-600 leading-relaxed">
+                    부동산 개발의 본질은 물리적 건축이 아닌 <strong>'마케팅적 가치 교환'</strong>에 있습니다. <br>
+                    우리는 경영학적 마케팅 시각으로 소비자의 행동 규칙성을 데이터화하고, <br>
+                    이를 통해 리스크는 제거하고 수익은 극대화하는 '증명 가능한 개발'을 수행합니다.
+                </p>
+            </div>
+        </div>
+    </section>
 
-        function generateLottoNumbers() {
-            const numbers = [];
-            while (numbers.length < 6) {
-                const num = Math.floor(Math.random() * 45) + 1;
-                if (!numbers.includes(num)) {
-                    numbers.push(num);
-                }
-            }
-            return numbers.sort((a, b) => a - b);
-        }
-
-        function displayNumbers() {
-            const winNumbers = generateLottoNumbers();
-            numbersContainer.innerHTML = '';
+    <!-- Brands Section -->
+    <section id="brands" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <div>
+                    <h2 class="text-4xl font-bold mb-4 font-urbanist text-slate-900">CORE BRANDS</h2>
+                    <p class="text-slate-500">각 분야의 전문가들이 AI 데이터로 하나로 연결됩니다.</p>
+                </div>
+            </div>
             
-            winNumbers.forEach((num, index) => {
-                setTimeout(() => {
-                    const numDiv = document.createElement('div');
-                    numDiv.className = `number ${getColorClass(num)}`;
-                    numDiv.textContent = num;
-                    numDiv.style.opacity = '0';
-                    numDiv.style.transform = 'translateY(20px)';
-                    numbersContainer.appendChild(numDiv);
-                    
-                    // 애니메이션 효과
-                    requestAnimationFrame(() => {
-                        numDiv.style.transition = 'all 0.4s ease';
-                        numDiv.style.opacity = '1';
-                        numDiv.style.transform = 'translateY(0)';
-                    });
-                }, index * 150);
-            });
-        }
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Brand: NEX CORE -->
+                <div class="brand-card group p-10 border border-slate-100 rounded-3xl bg-slate-50 hover:bg-black transition-all duration-500">
+                    <div class="brand-icon text-4xl mb-8 transition-transform duration-500 group-hover:text-[#deff9a]"><i class="fa-solid fa-brain"></i></div>
+                    <h3 class="text-2xl font-bold mb-4 font-urbanist group-hover:text-white">NEX CORE</h3>
+                    <p class="text-slate-500 group-hover:text-slate-400 mb-6 text-sm">마케팅 전략 사령탑. 시장의 규칙성을 발견하고 성공적인 상품 컨셉을 정의합니다.</p>
+                    <ul class="text-xs space-y-2 group-hover:text-slate-300">
+                        <li>• AI 소비자 행동 분석</li>
+                        <li>• 상품 컨셉 및 MD 기획</li>
+                        <li>• 통합 마케팅 전략 수립</li>
+                    </ul>
+                </div>
 
-        generateBtn.addEventListener('click', displayNumbers);
+                <!-- Brand: NEX ARCHI -->
+                <div class="brand-card group p-10 border border-slate-100 rounded-3xl bg-slate-50 hover:bg-black transition-all duration-500">
+                    <div class="brand-icon text-4xl mb-8 transition-transform duration-500 group-hover:text-[#deff9a]"><i class="fa-solid fa-bezier-curve"></i></div>
+                    <h3 class="text-2xl font-bold mb-4 font-urbanist group-hover:text-white">NEX ARCHI</h3>
+                    <p class="text-slate-500 group-hover:text-slate-400 mb-6 text-sm">AI 기반 데이터 설계. 코어에서 정의한 가치를 가장 효율적인 공간 언어로 구현합니다.</p>
+                    <ul class="text-xs space-y-2 group-hover:text-slate-300">
+                        <li>• AI 제너레이티브 디자인</li>
+                        <li>• 최대 용적률 최적화 설계</li>
+                        <li>• BIM 통합 관리 솔루션</li>
+                    </ul>
+                </div>
 
-        // 초기 실행
-        displayNumbers();
-    </script>
+                <!-- Brand: NEX FINS -->
+                <div class="brand-card group p-10 border border-slate-100 rounded-3xl bg-slate-50 hover:bg-black transition-all duration-500">
+                    <div class="brand-icon text-4xl mb-8 transition-transform duration-500 group-hover:text-[#deff9a]"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3 class="text-2xl font-bold mb-4 font-urbanist group-hover:text-white">NEX FINS</h3>
+                    <p class="text-slate-500 group-hover:text-slate-400 mb-6 text-sm">금융 공학 전략. 자본 조달 최적화와 사업비 최소화 시나리오를 설계합니다.</p>
+                    <ul class="text-xs space-y-2 group-hover:text-slate-300">
+                        <li>• AI PF 매칭 알고리즘</li>
+                        <li>• 리스크 헷지 민감도 분석</li>
+                        <li>• 수분양자 금융 패키지</li>
+                    </ul>
+                </div>
+
+                <!-- Brand: NEX AD -->
+                <div class="brand-card group p-10 border border-slate-100 rounded-3xl bg-slate-50 hover:bg-black transition-all duration-500">
+                    <div class="brand-icon text-4xl mb-8 transition-transform duration-500 group-hover:text-[#deff9a]"><i class="fa-solid fa-bullhorn"></i></div>
+                    <h3 class="text-2xl font-bold mb-4 font-urbanist group-hover:text-white">NEX AD</h3>
+                    <p class="text-slate-500 group-hover:text-slate-400 mb-6 text-sm">퍼포먼스 광고 실행. 정교한 타겟팅으로 분양 성공과 엑시트를 책임집니다.</p>
+                    <ul class="text-xs space-y-2 group-hover:text-slate-300">
+                        <li>• 데이터 기반 타겟 광고</li>
+                        <li>• 전환 중심 콘텐츠 제작</li>
+                        <li>• 실시간 분양 성과 관리</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-24 bg-slate-900 text-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-20 font-urbanist text-center">THE NEX PROCESS</h2>
+            
+            <div class="relative max-w-5xl mx-auto">
+                <!-- Vertical Line for Mobile -->
+                <div class="absolute left-1/2 top-0 bottom-0 w-px bg-white/10 hidden md:block"></div>
+                
+                <div class="space-y-24">
+                    <div class="flex flex-col md:flex-row items-center justify-between">
+                        <div class="md:w-5/12 text-right hidden md:block">
+                            <h4 class="text-2xl font-bold text-[#deff9a]">Strategy Discovery</h4>
+                            <p class="text-slate-400 mt-2">AI로 시장의 규칙을 찾습니다.</p>
+                        </div>
+                        <div class="w-12 h-12 bg-[#deff9a] rounded-full flex items-center justify-center text-black font-bold z-10 my-4 md:my-0">01</div>
+                        <div class="md:w-5/12 text-center md:text-left">
+                            <h4 class="text-2xl font-bold text-[#deff9a] md:hidden">Strategy Discovery</h4>
+                            <p class="text-slate-200"><strong>NEX CORE</strong>가 입지와 수요를 분석하여 '누가, 왜, 이 상품을 사야 하는가'에 대한 마케팅 가이드라인을 수립합니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row-reverse items-center justify-between">
+                        <div class="md:w-5/12 text-left hidden md:block">
+                            <h4 class="text-2xl font-bold text-[#deff9a]">Space Realization</h4>
+                            <p class="text-slate-400 mt-2">데이터를 공간으로 치환합니다.</p>
+                        </div>
+                        <div class="w-12 h-12 bg-[#deff9a] rounded-full flex items-center justify-center text-black font-bold z-10 my-4 md:my-0">02</div>
+                        <div class="md:w-5/12 text-center md:text-right">
+                            <h4 class="text-2xl font-bold text-[#deff9a] md:hidden">Space Realization</h4>
+                            <p class="text-slate-200"><strong>NEX ARCHI</strong>가 수립된 전략에 맞춰 AI 최적화 설계를 진행, 법적 용적률과 사업성을 동시에 확보하는 물리적 실체를 만듭니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-center justify-between">
+                        <div class="md:w-5/12 text-right hidden md:block">
+                            <h4 class="text-2xl font-bold text-[#deff9a]">Capital Optimization</h4>
+                            <p class="text-slate-400 mt-2">자본의 지도로 가치를 고정합니다.</p>
+                        </div>
+                        <div class="w-12 h-12 bg-[#deff9a] rounded-full flex items-center justify-center text-black font-bold z-10 my-4 md:my-0">03</div>
+                        <div class="md:w-5/12 text-center md:text-left">
+                            <h4 class="text-2xl font-bold text-[#deff9a] md:hidden">Capital Optimization</h4>
+                            <p class="text-slate-200"><strong>NEX FINS</strong>가 시뮬레이션된 사업성을 기반으로 최적의 PF를 매칭하고, 공사비-금리 헷지 전략으로 수익을 극대화합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-24 bg-[#deff9a]">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-6xl font-bold mb-8">당신의 프로젝트에 <br>AI 데이터의 확신을 더하세요.</h2>
+            <p class="text-xl mb-12 text-slate-800">넥스알엠 그룹은 파트너사의 성공을 데이터로 증명합니다.</p>
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+                <input type="email" placeholder="이메일 주소를 입력하세요" class="px-8 py-4 rounded-full w-full md:w-96 focus:outline-none">
+                <button class="bg-black text-white px-10 py-4 rounded-full font-bold hover:bg-slate-800 transition">협업 문의하기</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 border-t border-white/10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0 text-center md:text-left">
+                    <a href="#" class="font-urbanist text-2xl font-800 text-[#deff9a]">NEX RM</a>
+                    <p class="mt-2 text-slate-500 text-sm">AI-DRIVEN REAL ESTATE DEVELOPMENT GROUP</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-400 hover:text-white transition"><i class="fa-brands fa-linkedin text-2xl"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-white transition"><i class="fa-brands fa-instagram text-2xl"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-white transition"><i class="fa-brands fa-youtube text-2xl"></i></a>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600">
+                <p>&copy; 2026 NEX RM HOLDINGS. ALL RIGHTS RESERVED.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#">개인정보 처리방침</a>
+                    <a href="#">이용약관</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>

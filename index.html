@@ -8,12 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;800&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
             --brand-navy: #1a2a5b;
             --brand-gold: #c5a044;
-            --brand-gold-light: #e2c275;
         }
         body { font-family: 'Noto Sans KR', sans-serif; scroll-behavior: smooth; }
         .font-urbanist { font-family: 'Urbanist', sans-serif; }
@@ -29,21 +27,18 @@
         
         .nav-link:hover { color: var(--brand-gold); }
         
-        /* Process Section Styles */
         .process-step {
             position: relative;
-            transition: all 0.5s ease;
         }
         .process-step::before {
             content: '';
             position: absolute;
-            top: 50px;
+            top: 30px;
             left: 50%;
             width: 100%;
             height: 1px;
-            background: repeating-linear-gradient(90deg, var(--brand-gold), var(--brand-gold) 4px, transparent 4px, transparent 8px);
+            background: #e2e8f0;
             z-index: 0;
-            opacity: 0.3;
         }
         .process-step:last-child::before { display: none; }
         
@@ -58,18 +53,15 @@
             border-radius: 50%;
             font-family: 'Urbanist', sans-serif;
             font-weight: 800;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             margin: 0 auto 2rem;
             position: relative;
             z-index: 1;
-            border: 2px solid var(--brand-gold);
         }
 
-        /* Email Text Style (Underline Effect) */
         .email-display {
             position: relative;
             display: inline-block;
-            cursor: default;
         }
         .email-display::after {
             content: '';
@@ -79,136 +71,168 @@
             bottom: -5px;
             left: 0;
             background-color: var(--brand-gold);
-            transform: scaleX(1);
         }
 
         section { scroll-margin-top: 80px; }
+
+        .about-accent {
+            border-left: 2px solid var(--brand-gold);
+            padding-left: 2rem;
+        }
     </style>
 </head>
 <body class="bg-white text-slate-800">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-lg py-6 border-b border-slate-100">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="#" class="transition hover:opacity-80">
-                <span class="font-urbanist font-800 text-2xl tracking-tighter text-navy uppercase">NEX RM</span>
-            </a>
-            <div class="hidden md:flex space-x-12 font-bold text-xs tracking-widest text-navy">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md py-6 border-b border-slate-100">
+        <div class="container mx-auto px-8 flex justify-between items-center">
+            <a href="#" class="font-urbanist font-800 text-2xl tracking-tighter text-navy uppercase">NEX RM</a>
+            <div class="hidden md:flex space-x-12 font-bold text-xs tracking-[0.2em] text-navy">
                 <a href="#about" class="nav-link transition uppercase">About</a>
                 <a href="#brands" class="nav-link transition uppercase">Brands</a>
                 <a href="#process" class="nav-link transition uppercase">Process</a>
                 <a href="#contact" class="nav-link transition uppercase">Contact</a>
             </div>
-            <!-- INQUIRY 버튼 삭제됨 -->
         </div>
     </nav>
 
     <!-- Hero Section -->
     <header class="hero-gradient min-h-screen flex items-center pt-20">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center md:text-left">
-                <p class="font-urbanist tracking-[0.4em] text-gold mb-6 font-800 uppercase text-sm">Real Estate Management</p>
-                <h1 class="text-4xl md:text-7xl font-urbanist font-800 mb-8 leading-tight text-navy">
-                    DEFINING THE FUTURE OF <br><span class="text-gold italic">LOCATION DATA.</span>
+        <div class="container mx-auto px-8">
+            <div class="max-w-4xl">
+                <p class="font-urbanist tracking-[0.4em] text-gold mb-6 font-800 uppercase text-xs">Real Estate Management Group</p>
+                <h1 class="text-5xl md:text-8xl font-urbanist font-800 mb-10 leading-[1.1] text-navy">
+                    DEFINING THE <br>FUTURE OF <span class="text-gold italic">DATA.</span>
                 </h1>
-                <p class="text-lg md:text-xl text-slate-600 max-w-2xl mb-12 font-light leading-relaxed">
-                    경험과 직관을 넘어 AI 데이터로 시장을 정의합니다.<br>
-                    넥스알엠 그룹은 '증명 가능한 개발'을 통해 부동산의 새로운 가치를 창출합니다.
+                <p class="text-xl text-slate-500 max-w-2xl mb-12 font-light leading-relaxed">
+                    불확실한 시장을 데이터로 정의합니다.<br>
+                    NEX RM은 증명 가능한 분석을 통해 부동산의 새로운 가치를 창출합니다.
                 </p>
-                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center md:justify-start">
-                    <a href="#process" class="bg-navy text-white px-10 py-5 rounded-sm font-bold hover:bg-gold transition shadow-lg text-center">Our Process</a>
-                    <a href="#brands" class="border border-navy/20 text-navy px-10 py-5 rounded-sm font-bold hover:bg-navy/5 transition text-center">Brand Portfolio</a>
+                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                    <a href="#about" class="bg-navy text-white px-10 py-5 rounded-sm font-bold hover:bg-gold transition text-center uppercase text-sm tracking-widest">Discover More</a>
                 </div>
             </div>
         </div>
     </header>
 
+    <!-- About Section -->
+    <section id="about" class="py-40 bg-white">
+        <div class="container mx-auto px-8">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-xs font-urbanist tracking-[0.6em] text-gold mb-12 uppercase">Identity</h2>
+                
+                <div class="grid md:grid-cols-12 gap-16">
+                    <div class="md:col-span-7">
+                        <h3 class="text-4xl md:text-5xl font-bold text-navy font-urbanist mb-12 leading-tight">
+                            BETTER DATA,<br>GREATER VALUE.
+                        </h3>
+                        <div class="about-accent mb-12">
+                            <p class="text-2xl text-navy font-bold leading-snug">
+                                "넥스알엠은 단순한 부동산 관리를 넘어,<br>데이터를 통한 가치 최적화를 지향합니다."
+                            </p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5 flex flex-col justify-end">
+                        <div class="space-y-6 text-slate-600 leading-relaxed text-lg">
+                            <p>
+                                우리는 AI 상권 분석과 빅데이터 로그 분석을 통해 입지가 가진 잠재력을 숫자로 증명하고, 이를 기반으로 최적화된 상품을 기획합니다.
+                            </p>
+                            <p>
+                                기획, 설계, 금융, 마케팅의 전 과정을 데이터로 연결하여 파편화된 부동산 시장의 문제를 해결하는 '부동산 테크 매니지먼트' 그룹입니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mt-24 pt-24 border-t border-slate-100">
+                    <div>
+                        <span class="block text-4xl font-urbanist font-800 text-navy mb-2">120+</span>
+                        <span class="text-[10px] font-bold text-gold uppercase tracking-[0.3em]">Completed Projects</span>
+                    </div>
+                    <div>
+                        <span class="block text-4xl font-urbanist font-800 text-navy mb-2">98%</span>
+                        <span class="text-[10px] font-bold text-gold uppercase tracking-[0.3em]">Data Accuracy</span>
+                    </div>
+                    <div>
+                        <span class="block text-4xl font-urbanist font-800 text-navy mb-2">15+</span>
+                        <span class="text-[10px] font-bold text-gold uppercase tracking-[0.3em]">Specialized Brands</span>
+                    </div>
+                    <div>
+                        <span class="block text-4xl font-urbanist font-800 text-navy mb-2">24/7</span>
+                        <span class="text-[10px] font-bold text-gold uppercase tracking-[0.3em]">Market Monitoring</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Process Section -->
-    <section id="process" class="py-32 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-24">
-                <h2 class="text-xs font-urbanist tracking-[0.6em] text-gold mb-4 uppercase">Workflow</h2>
-                <h3 class="text-4xl font-bold text-navy font-urbanist">INTEGRATED PROCESS</h3>
-                <p class="mt-6 text-slate-500 max-w-2xl mx-auto">기획부터 마케팅까지, 데이터가 흐르는 통합 개발 프로세스를 제안합니다.</p>
+    <section id="process" class="py-40 bg-slate-50">
+        <div class="container mx-auto px-8">
+            <div class="text-center mb-32">
+                <h2 class="text-xs font-urbanist tracking-[0.6em] text-gold mb-6 uppercase">System</h2>
+                <h3 class="text-4xl font-bold text-navy font-urbanist tracking-tighter">INTEGRATED WORKFLOW</h3>
             </div>
 
-            <div class="grid md:grid-cols-4 gap-12 relative">
-                <!-- Step 1 -->
+            <div class="grid md:grid-cols-4 gap-16">
                 <div class="process-step text-center">
                     <div class="step-number">01</div>
-                    <h4 class="text-xl font-bold mb-4 text-navy">DATA LAB</h4>
-                    <p class="text-sm text-slate-500 leading-relaxed px-4">
-                        AI 기반 상권 분석 및 입지 잠재력을 평가하여 사업의 기초 데이터를 확보합니다.
+                    <h4 class="text-lg font-bold mb-4 text-navy font-urbanist tracking-widest uppercase">Analysis</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">
+                        AI 기반 상권 분석 및 입지 잠재력 평가를 통한 기초 데이터 확보.
                     </p>
-                    <div class="mt-6 text-[10px] font-bold text-gold tracking-widest uppercase">Mining & Analysis</div>
                 </div>
-
-                <!-- Step 2 -->
                 <div class="process-step text-center">
                     <div class="step-number">02</div>
-                    <h4 class="text-xl font-bold mb-4 text-navy">STRATEGY</h4>
-                    <p class="text-sm text-slate-500 leading-relaxed px-4">
-                        도출된 데이터를 기반으로 타겟 고객을 정의하고 독보적인 상품 컨셉을 기획합니다.
+                    <h4 class="text-lg font-bold mb-4 text-navy font-urbanist tracking-widest uppercase">Strategy</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">
+                        타겟 고객 정의 및 독보적인 상품 컨셉 기획 전략 수립.
                     </p>
-                    <div class="mt-6 text-[10px] font-bold text-gold tracking-widest uppercase">Concept Defining</div>
                 </div>
-
-                <!-- Step 3 -->
                 <div class="process-step text-center">
                     <div class="step-number">03</div>
-                    <h4 class="text-xl font-bold mb-4 text-navy">DESIGN & FIN</h4>
-                    <p class="text-sm text-slate-500 leading-relaxed px-4">
-                        최적화된 건축 설계와 정밀한 금융 구조화를 통해 사업의 실행력을 완성합니다.
+                    <h4 class="text-lg font-bold mb-4 text-navy font-urbanist tracking-widest uppercase">Structure</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">
+                        건축 설계 최적화 및 정밀한 금융 구조화를 통한 사업 실행력 강화.
                     </p>
-                    <div class="mt-6 text-[10px] font-bold text-gold tracking-widest uppercase">Architectural optimization</div>
                 </div>
-
-                <!-- Step 4 -->
                 <div class="process-step text-center">
                     <div class="step-number">04</div>
-                    <h4 class="text-xl font-bold mb-4 text-navy">AD & SALES</h4>
-                    <p class="text-sm text-slate-500 leading-relaxed px-4">
-                        로그 분석 기반의 퍼포먼스 마케팅으로 완벽한 분양 성공 및 가치 증명을 실현합니다.
+                    <h4 class="text-lg font-bold mb-4 text-navy font-urbanist tracking-widest uppercase">Delivery</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">
+                        로그 분석 기반의 퍼포먼스 마케팅으로 완벽한 가치 증명.
                     </p>
-                    <div class="mt-6 text-[10px] font-bold text-gold tracking-widest uppercase">Performance Delivery</div>
                 </div>
-            </div>
-            
-            <!-- 하단 INQUIRY 배너 섹션 삭제 및 요약 문구로 변경 -->
-            <div class="mt-24 p-12 bg-slate-50 rounded-sm border border-slate-100 text-center">
-                <h4 class="text-2xl font-bold text-navy mb-2">데이터로 증명하는 성공</h4>
-                <p class="text-slate-500">NEX RM의 통합 프로세스는 부동산 개발의 시행착오를 최소화하고 확실한 성과를 제공합니다.</p>
             </div>
         </div>
     </section>
 
     <!-- Brands Section -->
-    <section id="brands" class="py-32 bg-slate-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl font-urbanist font-800 text-navy uppercase tracking-tighter">Core Brands</h2>
-                <div class="w-12 h-1 bg-gold mx-auto mt-4"></div>
+    <section id="brands" class="py-40 bg-white">
+        <div class="container mx-auto px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+                <div>
+                    <h2 class="text-xs font-urbanist tracking-[0.6em] text-gold mb-6 uppercase">Portfolio</h2>
+                    <h3 class="text-4xl font-urbanist font-800 text-navy uppercase tracking-tighter leading-none">Core Business Units</h3>
+                </div>
+                <p class="text-slate-400 text-sm max-w-xs">각 분야의 전문가 그룹이 협업하여 최상의 결과를 도출합니다.</p>
             </div>
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="p-10 bg-white border border-slate-100 rounded-sm hover:border-gold transition-all duration-300">
-                    <div class="text-gold text-3xl mb-8"><i class="fa-solid fa-microchip"></i></div>
-                    <h4 class="text-xl font-bold mb-4 text-navy font-urbanist">NEX CORE</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">AI 기반 시장 분석 및 상품 컨셉 도출을 담당하는 전략 헤드쿼터.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="p-12 border border-slate-100 rounded-sm hover:bg-navy hover:text-white transition-all duration-500 group">
+                    <h4 class="text-xl font-bold mb-6 font-urbanist">NEX CORE</h4>
+                    <p class="text-slate-500 group-hover:text-slate-300 text-sm leading-relaxed">시장 분석 및 상품 컨셉 도출 전략 헤드쿼터.</p>
                 </div>
-                <div class="p-10 bg-white border border-slate-100 rounded-sm hover:border-gold transition-all duration-300">
-                    <div class="text-gold text-3xl mb-8"><i class="fa-solid fa-drafting-compass"></i></div>
-                    <h4 class="text-xl font-bold mb-4 text-navy font-urbanist">NEX ARCHI</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">데이터를 공간 언어로 번역하는 바우하우스 실용주의 설계 그룹.</p>
+                <div class="p-12 border border-slate-100 rounded-sm hover:bg-navy hover:text-white transition-all duration-500 group">
+                    <h4 class="text-xl font-bold mb-6 font-urbanist">NEX ARCHI</h4>
+                    <p class="text-slate-500 group-hover:text-slate-300 text-sm leading-relaxed">데이터 기반의 실용주의 설계 그룹.</p>
                 </div>
-                <div class="p-10 bg-white border border-slate-100 rounded-sm hover:border-gold transition-all duration-300">
-                    <div class="text-gold text-3xl mb-8"><i class="fa-solid fa-coins"></i></div>
-                    <h4 class="text-xl font-bold mb-4 text-navy font-urbanist">NEX FINS</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">금융 공학 기반의 자본 최적화 및 PF 전략으로 수익성을 극대화.</p>
+                <div class="p-12 border border-slate-100 rounded-sm hover:bg-navy hover:text-white transition-all duration-500 group">
+                    <h4 class="text-xl font-bold mb-6 font-urbanist">NEX FINS</h4>
+                    <p class="text-slate-500 group-hover:text-slate-300 text-sm leading-relaxed">자본 최적화 및 PF 전략 수익성 극대화.</p>
                 </div>
-                <div class="p-10 bg-white border border-slate-100 rounded-sm hover:border-gold transition-all duration-300">
-                    <div class="text-gold text-3xl mb-8"><i class="fa-solid fa-satellite-dish"></i></div>
-                    <h4 class="text-xl font-bold mb-4 text-navy font-urbanist">NEX AD</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">디지털 퍼포먼스 마케팅을 통해 분양 성공을 견인하는 광고 에이전시.</p>
+                <div class="p-12 border border-slate-100 rounded-sm hover:bg-navy hover:text-white transition-all duration-500 group">
+                    <h4 class="text-xl font-bold mb-6 font-urbanist">NEX AD</h4>
+                    <p class="text-slate-500 group-hover:text-slate-300 text-sm leading-relaxed">디지털 퍼포먼스 기반의 마케팅 에이전시.</p>
                 </div>
             </div>
         </div>
@@ -216,29 +240,26 @@
 
     <!-- Contact Section -->
     <section id="contact" class="py-48 bg-navy text-white text-center">
-        <div class="container mx-auto px-6">
-            <h2 class="text-xs font-urbanist tracking-[0.5em] text-gold mb-12 uppercase opacity-80">Start Conversation</h2>
-            <p class="text-3xl md:text-5xl font-urbanist font-800 mb-16 leading-tight">
+        <div class="container mx-auto px-8">
+            <p class="text-3xl md:text-5xl font-urbanist font-800 mb-16 leading-tight tracking-tighter">
                 TRUST IN DATA, <br>GROW WITH <span class="text-gold italic">NEX RM.</span>
             </p>
-            <div class="flex flex-col items-center">
-                <div class="email-display font-urbanist text-3xl md:text-6xl font-800">
-                    kskim3200@gmail.com
-                </div>
+            <div class="email-display font-urbanist text-2xl md:text-5xl font-800 text-gold">
+                kskim3200@gmail.com
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white py-12 border-t border-slate-50">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-[10px] text-slate-400">
-            <div class="mb-4 md:mb-0">
-                <span class="font-urbanist font-800 text-sm tracking-widest text-navy uppercase">NEX RM GROUP</span>
+    <footer class="bg-white py-16 border-t border-slate-100">
+        <div class="container mx-auto px-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-slate-400 tracking-[0.2em] uppercase font-bold">
+            <div class="mb-8 md:mb-0">
+                <span class="text-navy">NEX RM GROUP</span>
             </div>
-            <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-8">
-                <span>&copy; 2026 NEX RM Group. All Rights Reserved.</span>
+            <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-12">
+                <span>&copy; 2026 NEX RM Group.</span>
                 <a href="#" class="hover:text-gold transition">Privacy Policy</a>
-                <a href="#" class="hover:text-gold transition">Terms of Service</a>
+                <a href="#" class="hover:text-gold transition">Terms</a>
             </div>
         </div>
     </footer>

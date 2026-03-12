@@ -1,5 +1,6 @@
 const numbersContainer = document.getElementById('numbers');
 const generateButton = document.getElementById('generate');
+const themeToggle = document.getElementById('theme-toggle');
 
 function generateNumbers() {
     const numbers = new Set();
@@ -24,6 +25,25 @@ function generateAndDisplayNumbers() {
     const winningNumbers = generateNumbers();
     displayNumbers(winningNumbers);
 }
+
+// Theme Toggle Logic
+function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    themeToggle.textContent = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+}
+
+function toggleTheme() {
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+}
+
+themeToggle.addEventListener('click', toggleTheme);
+
+// Initialize Theme
+const savedTheme = localStorage.getItem('theme') || 'light';
+setTheme(savedTheme);
 
 generateButton.addEventListener('click', generateAndDisplayNumbers);
 
